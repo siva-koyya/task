@@ -1,0 +1,21 @@
+.coordinator-section {
+    margin-bottom: 10px;
+  }
+  
+  .dropdown {
+    width: 100%;
+    padding: 8px;
+    background: black;
+    color: white;
+    border: 1px solid white;
+  }
+  
+  .add-btn {
+    width: 100%;
+    padding: 8px;
+    background: #ff00ff;
+    color: white;
+    border: none;
+    margin-top: 10px;
+  }
+  
