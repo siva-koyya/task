@@ -43,14 +43,14 @@ function SideBar() {
           <li className="menu-item"><span className="line"></span> Coordinators</li>
         </ul>
 
-        <div className="section"><p>Profile</p></div>
+        <div className="section" onClick={()=>{setPageNav("Profile")}}><p>Profile</p></div>
 
         <button className="logout-btn" onClick={() => alert("Logging out...")}>
           Logout
         </button>
       </div>
 
-      {/* Event Page Section */}
+      
       {/* <div className="event-container"> */}
         <EventPage navType={pageNav} />
       {/* </div> */}

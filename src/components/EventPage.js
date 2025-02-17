@@ -5,6 +5,7 @@ import ContractorList from "./ContractorList";
 import PositionsTable from "./PositionsTable";
 import EventDetails from "./EventDetails";
 import "./EventPage.css";
+import ProfileHeader from "./ProfileHeader";
 
 function EventPage({ navType }) {
   const [page, setPage] = useState(navType);
@@ -28,6 +29,9 @@ function EventPage({ navType }) {
     case "Users":
       component = <CoordinatorSection />;
       break;
+      case "Profile":
+        component = <ProfileHeader />;
+        break;
     default:
       component = null;
   }
