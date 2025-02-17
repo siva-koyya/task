@@ -9,10 +9,19 @@
   font-family: Arial, sans-serif;
   height: 90vh;
   overflow-y: auto;
+  border-radius: 1em;
   box-shadow: 2px 0px 10px rgba(255, 0, 255, 0.3);
 }
+.sidebar::-webkit-scrollbar {
+  width: 2px;
+  height: auto;
+  background: linear-gradient(180deg, #090a1a, #0d0e26);
+}
 
-/* Section Headers */
+.sidebar::-webkit-scrollbar-thumb {
+  background: #aaa;
+}
+
 .section {
   display: flex;
   justify-content: space-between;
@@ -30,7 +39,6 @@
   background: rgba(255, 0, 255, 0.2);
 }
 
-/* Menu List */
 .menu-list {
   list-style: none;
   padding-left: 20px;

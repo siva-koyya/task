@@ -1,18 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-import SideBar from './components/SideBar';
-import EventPage from './components/EventPage';
-import ContractorList from './components/ContractorList';
-import CoordinatorSection from './components/CoordinatorSection';
+
+import { createBrowserRouter } from 'react-router';
+import Layout from './components/Layout';
+import { RouterProvider } from 'react-router-dom';
 
 function App() {
-
+ const router=createBrowserRouter([
+  {path:"/",element:<Layout/>,}
+ ])
   return (
-
-    <div  style={{display:"flex",padding:"1em",gap:"0.5em", height:"90vh",background:"line"}}>
-       <SideBar /> 
-        <EventPage />
-    </div>
+    <RouterProvider router={router}/>
   );
 }
 

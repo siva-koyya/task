@@ -1,43 +1,64 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import EventHeader from "./EventHeader";
 import CoordinatorSection from "./CoordinatorSection";
 import ContractorList from "./ContractorList";
 import PositionsTable from "./PositionsTable";
-import "./EventPage.css";
 import EventDetails from "./EventDetails";
+import "./EventPage.css";
 
-function EventPage() {
+function EventPage({ navType }) {
+  const [page, setPage] = useState(navType);
+
+  useEffect(() => {
+    setPage(navType);
+  }, [navType]); // Update component when navType changes
+
   const handleSubmit = () => {
     alert("Form submitted!"); // Replace with actual submission logic
   };
 
-  return (
-    <>
-      <div className="event-page">
-        <EventHeader />
-        <div className="content">
-          <div className="left-panel">
-            <div>
-              <CoordinatorSection />
-            </div>
-            <div style={{ marginRight: "8em" }}>
-              <EventDetails />
-            </div>
-          </div>
-          <div className="right-panel">
-            <ContractorList />
-            <PositionsTable />
-          </div>
-        </div>
+  let component;
+  switch (page) {
+    case "Position":
+      component = <PositionsTable />;
+      break;
+    case "Contractors":
+      component = <ContractorList />;
+      break;
+    case "Users":
+      component = <CoordinatorSection />;
+      break;
+    default:
+      component = null;
+  }
 
-        {/* Submit Button */}
-        <div className="submit-container">
-          <button className="submit-btn" onClick={handleSubmit}>
-            Submit
-          </button>
-        </div>
-      </div>
-    </>
+  return (
+    <div className="event-page">
+      {page === "" ? (
+        <>
+          <EventHeader />
+          <div className="content">
+            <div className="left-panel">
+              <CoordinatorSection />
+              <div style={{ marginRight: "8em" }}>
+                <EventDetails />
+              </div>
+            </div>
+            <div className="right-panel">
+              <ContractorList />
+              <PositionsTable />
+            </div>
+          </div>
+          <div className="submit-container">
+            <button className="submit-btn" onClick={handleSubmit}>
+              Submit
+            </button>
+          </div>
+        </>
+      ) : (
+        component
+      )}
+    </div>
   );
 }
 
